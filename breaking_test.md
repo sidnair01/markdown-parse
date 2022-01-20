@@ -1,0 +1,1 @@
+[link]abc123(randomtext)
