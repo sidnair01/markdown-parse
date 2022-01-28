@@ -17,13 +17,11 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
             /*if(nextOpenBracket == -1){
                 break;
-            }
-            if((openParen-nextCloseBracket)==1){*/
+            }*/
             if(openParen!=-1 && closeParen!=-1){
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
+            toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
-            //}
-            currentIndex +=1;
+            currentIndex = closeParen + 1;
         }
         return toReturn;
     }
