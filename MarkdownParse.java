@@ -16,7 +16,7 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
   
-            if(nextOpenBracket!=-1 && markdown.charAt(nextOpenBracket-1)=='!'){
+            if(nextOpenBracket > 0 && markdown.charAt(nextOpenBracket-1)=='!'){
                 //for images
                 currentIndex = nextCloseBracket + 1;
             } else if(openParen!=-1 && closeParen!=-1 && nextOpenBracket!=-1 && nextCloseBracket!=-1
