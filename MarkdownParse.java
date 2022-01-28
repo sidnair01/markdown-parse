@@ -19,9 +19,10 @@ public class MarkdownParse {
                 break;
             }*/
             if(openParen!=-1 && closeParen!=-1){
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
-            }
+                    toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
+            }
+            currentIndex +=1;
         }
         return toReturn;
     }
