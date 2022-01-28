@@ -15,14 +15,18 @@ public class MarkdownParse {
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            /*if(nextOpenBracket == -1){
-                break;
-            }*/
-            if(openParen!=-1 && closeParen!=-1){
+  
+            if(nextOpenBracket!=-1 && markdown.charAt(nextOpenBracket-1)=='!'){
+                //for images
+                currentIndex = nextCloseBracket + 1;
+            } else if(openParen!=-1 && closeParen!=-1 && nextOpenBracket!=-1 && nextCloseBracket!=-1
+            && openParen-nextCloseBracket==1){
+                //for valid link
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
                 currentIndex = closeParen + 1;
             }
             else{
+                //no links
                 currentIndex +=1;
             }
         }
