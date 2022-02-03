@@ -11,23 +11,27 @@ public class MarkdownParse {
         // the next )
         int currentIndex = 0;
         while(currentIndex < markdown.length()) {
-            int nextOpenBracket = markdown.indexOf("[", currentIndex);
-            int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
-            int openParen = markdown.indexOf("(", nextCloseBracket);
-            int closeParen = markdown.indexOf(")", openParen);
-  
-            if(nextOpenBracket > 0 && markdown.charAt(nextOpenBracket-1)=='!'){
-                //for images
+            int nextOpenBracket = markdown.indexOf("[", currentIndex),
+                nextCloseBracket = markdown.indexOf("]", nextOpenBracket),
+                openParen = markdown.indexOf("(", nextCloseBracket),
+                closeParen = markdown.indexOf(")", openParen);
+
+            if(nextOpenBracket > 0 &&
+               markdown.charAt(nextOpenBracket-1) == '!'){
+                // Image, skip
                 currentIndex = nextCloseBracket + 1;
-            } else if(openParen!=-1 && closeParen!=-1 && nextOpenBracket!=-1 && nextCloseBracket!=-1
-            && openParen-nextCloseBracket==1){
-                //for valid link
+            } else if(nextOpenBracket >= 0 &&
+                      nextCloseBracket >= 0 &&
+                      nextCloseBracket > nextOpenBracket+1 &&
+                      openParen == nextCloseBracket+1 &&
+                      closeParen >= 0
+            ){
+                // Valid link, add to list
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
                 currentIndex = closeParen + 1;
-            }
-            else{
-                //no links
-                currentIndex +=1;
+            } else {
+                // Invalid link, advance one character
+                currentIndex += 1;
             }
         }
         return toReturn;
