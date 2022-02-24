@@ -1,4 +1,7 @@
-# Title
+`[a link`](url.com)
 
-[a link!](https://something.com)
-[another link!](some-page.html)
+[another link](`google.com)`
+
+[`cod[e`](google.com)
+
+[`code]`](ucsd.edu)
