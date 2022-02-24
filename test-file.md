@@ -1,24 +1,8 @@
 [this title text is really long and takes up more than 
-one line
+`[a link`](url.com)
 
-and has some line breaks](
-    https://www.twitter.com
-)
+[another link](`google.com)`
 
-[this title text is really long and takes up more than 
-one line](
-    https://ucsd-cse15l-w22.github.io/
-)
+[`cod[e`](google.com)
 
-
-[this link doesn't have a closing parenthesis](github.com
-
-And there's still some more text after that.
-
-[this link doesn't have a closing parenthesis for a while](https://cse.ucsd.edu/
-
-
-
-)
-
-And then there's more text
+[`code]`](ucsd.edu)
